@@ -38,7 +38,7 @@
             right:0%;
             left: 0%;
             bottom: 90%;
-            z-index: 10;
+            z-index: 1;
 
         }
 
@@ -50,6 +50,10 @@
             align-items: center;
         }
         #btf {
+            line-height: 0.8;
+            margin-top: 2;
+            flex-direction: column;
+            display:flex;
             height: 45px;
             width: 45px;
             background-color: #a57d52;
@@ -60,6 +64,12 @@
         }
         #btf::hover{transform:translateY(-2px)}
 
+        #janela{
+            background-color:black;
+            left: 80%
+
+        }
+
     </style>
     <div id=cbc>
         <div id=bts>
@@ -68,6 +78,9 @@
                 <b>-</b>
                 <b>-</b>
             </button>
+            <div id="janela">
+
+            </div>
     
         </div>    
     </div>
