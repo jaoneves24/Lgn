@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bem Vindo</title>
 </head>
 <body>
     <style>
@@ -65,9 +65,16 @@
         #btf::hover{transform:translateY(-2px)}
 
         #janela{
-            background-color:black;
-            left: 80%
-
+            background-color:white;
+            height: 200px;
+            width: 200px;
+            right:80%;
+            left: 0%;
+            bottom: 0%;
+            align-items: center;
+            flex-direction:column;
+            display: flex;  
+            visible:none;
         }
 
     </style>
@@ -78,11 +85,19 @@
                 <b>-</b>
                 <b>-</b>
             </button>
-            <div id="janela">
-
-            </div>
+            
     
         </div>    
+            <div id="janela">
+                <input type="button" id="bti" value="menu principal">
+                <div>
+                    <input type="button" id="bti" value="+">
+                    <input type="button" id="bti" value="-">
+                </div>
+                <input type="button" id="bti" value="cafe">
+                <input type="button" id="bti" value="padaria">
+            </div>
+
     </div>
     
     <div id="lista">
