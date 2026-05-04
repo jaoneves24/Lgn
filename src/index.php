@@ -121,10 +121,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body>
-<<<<<<< HEAD
-  
-    
-=======
     <form method="POST" id="myform">
     <div id="loguin"> <!-- criar uma divisioria entre a parte de longuin e o resto do codigo utilizando o metodo post para esconder os dados -->
         <div id="long">
@@ -145,6 +141,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             alert("<?= $mensagem ?>");
         </script>
     <?php endif; ?>
->>>>>>> main
 </body>
 </html>
