@@ -1,31 +1,8 @@
 <?php
 session_start();
-include 'dbase.php';
+require_once "dbase.php";
 
-$email = $_POST['email'];
-$senha = $_POST['senha'];
 
-// evita SQL injection
-$sql = "SELECT * FROM usuarios WHERE email = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $email);
-$stmt->execute();
-
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    $usuario = $result->fetch_assoc();
-
-    // verifica senha
-    if (password_verify($senha, $usuario['senha'])) {
-        $_SESSION['usuario_id'] = $usuario['id'];
-        header("Location: dashboard.php");
-    } else {
-        echo "Senha incorreta";
-    }
-} else {
-    echo "Usuário não encontrado";
-}
 ?>
 
 <!DOCTYPE html>

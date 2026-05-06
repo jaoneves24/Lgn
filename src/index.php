@@ -1,18 +1,49 @@
 <?php
 session_start();
+require 'dbase.php';
 
-$mensagem = "";
-$tipo = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-   $usuario = $_POST["cxtxu"] ?? "";
-   $senha = $_POST["cxtxs"] ?? "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-   if(!empty($usuario)){
-    $mensagem = "Usuario:". '$usuario'. " acicionado";
-    $tipo = "Sucesso";
-   };
-};
+    $email = $_POST['cxtxu'] ?? '';
+    $senha = $_POST['cxtxs'] ?? '';
 
+    if(isset($_POST['btl'])){
+
+    if (!empty($email) && !empty($senha)) {
+
+        $sql = "INSERT INTO usuarios (email, senha) VALUES (:email, :senha)";
+        $stmt = $conn->prepare($sql);
+
+        $stmt->execute([
+            ':email' => $email,
+            ':senha' => password_hash($senha, PASSWORD_DEFAULT)
+        ]);
+
+        $mensagem = "Usuário cadastrado!";
+    } else {
+        $mensagem = "Preencha todos os campos!";
+    }
+    }
+    if(isset($_POST['btv'])){
+    if (!empty($email) && !empty($senha)) {
+
+        $sql = "SELECT * FROM usuarios WHERE email = :email";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([':email' => $email]);
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($usuario && password_verify($senha, $usuario['senha'])) {
+            $_SESSION['usuario'] = $usuario['email'];
+            header("Location: user.php");
+            exit();
+        } else {
+            $mensagem = "Email ou senha incorretos!";
+        }
+    } else {
+        $mensagem = "Preencha todos os campos!";
+    }
+}
+}
 ?>
 
 <!DOCTYPE html>
@@ -131,15 +162,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <div id="bottoes">                                       
                 
-                <input type="button" id="btv" value="☕ Entrar">
-                <input type="submit" form="myform" id="btl" value="➕ Cadastrar"> <!-- botoes de criação de usuario e vericação de usuario -->
+                <input type="submit" id="btv" name="btv" value="☕ Entrar">
+                <input type="submit" form="myform" id="btl" name="btl" value="➕ Cadastrar"> <!-- botoes de criação de usuario e vericação de usuario -->
             </div>
         </div>
+        <?php if (isset($mensagem)): ?>
+            <script>
+                alert("<?php echo $mensagem; ?>");
+            </script>
+        <?php endif; ?>
     </div>
-    <?php if ($mensagem): ?>
-        <script>
-            alert("<?= $mensagem ?>");
-        </script>
-    <?php endif; ?>
 </body>
 </html>
