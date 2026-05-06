@@ -2,48 +2,7 @@
 session_start();
 require 'dbase.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $email = $_POST['cxtxu'] ?? '';
-    $senha = $_POST['cxtxs'] ?? '';
-
-    if(isset($_POST['btl'])){
-
-    if (!empty($email) && !empty($senha)) {
-
-        $sql = "INSERT INTO usuarios (email, senha) VALUES (:email, :senha)";
-        $stmt = $conn->prepare($sql);
-
-        $stmt->execute([
-            ':email' => $email,
-            ':senha' => password_hash($senha, PASSWORD_DEFAULT)
-        ]);
-
-        $mensagem = "Usuário cadastrado!";
-    } else {
-        $mensagem = "Preencha todos os campos!";
-    }
-    }
-    if(isset($_POST['btv'])){
-    if (!empty($email) && !empty($senha)) {
-
-        $sql = "SELECT * FROM usuarios WHERE email = :email";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([':email' => $email]);
-        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($usuario && password_verify($senha, $usuario['senha'])) {
-            $_SESSION['usuario'] = $usuario['email'];
-            header("Location: user.php");
-            exit();
-        } else {
-            $mensagem = "Email ou senha incorretos!";
-        }
-    } else {
-        $mensagem = "Preencha todos os campos!";
-    }
-}
-}
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Loguin</title>                                                                                                                                                      
 </head>
 <body>
-    <form method="POST" id="myform">
+    <form method="POST" id="myform" action=""> <!-- criar um formulario para o metodo post -->
     <div id="loguin"> <!-- criar uma divisioria entre a parte de longuin e o resto do codigo utilizando o metodo post para esconder os dados -->
         <div id="long">
             <h1>Café Bem Bão</h1>
@@ -65,13 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div id="bottoes">                                       
                 
-                <input type="submit" id="btv" name="btv" value="☕ Entrar">
-                <input type="submit" form="myform" id="btl" name="btl" value="➕ Cadastrar"> <!-- botoes de criação de usuario e vericação de usuario -->
+                <input type="submit" id="btv" name="btv" value="☕ Entrar" formaction="validacao.php"> <!-- botoes de criação de usuario e vericação de usuario -->
+                <input type="submit" form="myform" id="btl" name="btl" value="➕ Cadastrar" formaction="rd.php"> <!-- botoes de criação de usuario e vericação de usuario -->
             </div>
         </div>
-        <?php if (isset($mensagem)): ?>
+        <?php if (isset($_SESSION['mensagem'])): ?>
             <script>
-                alert("<?php echo $mensagem; ?>");
+                alert("<?php echo $_SESSION['mensagem']; ?>");
             </script>
         <?php endif; ?>
     </div>

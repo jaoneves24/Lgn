@@ -15,7 +15,8 @@ require_once "dbase.php";
 </head>
 <body>
     <style>
-     
+      
+
     </style>
     <div id=cbc>
         <div id=bts>
