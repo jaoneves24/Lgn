@@ -18,3 +18,17 @@ if(isset($_POST['btd'])){
     exit();
 }
 
+if(isset($_POST['btdc'])){
+    $id = $_POST['id'];
+
+    $sql = "DELETE FROM cfe WHERE id = :id";
+
+    $stmt = $conn->prepare($sql);
+
+    $stmt->execute([
+        ':id' => $id
+    ]);
+    header("Location: cfria.php");
+    exit();
+}
+

@@ -59,14 +59,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if(!empty($nac) && !empty($inc) && !empty($pec)){
             $sql = "INSERT INTO cfe (nome, preco, quantidade) VALUE (:nomec, :precoc, :quantidadec)";
             $stmt = $conn ->prepare($sql);
-
             $stmt ->execute([
-                $nac => ':nomac',
-                $inc => ':precoc',
-                $pec => ':quantidadec'
+                ':nomec' => $nac,
+                ':precoc' => $inc,
+                ':quantidadec' => $pec
             ]);
         } else{$_SESSION['mensagem'] = "Preencha todos os campos!";}
-    header("Location: pdria.php");
+    header("Location: cfria.php");
     exit();
 
     }
