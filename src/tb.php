@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "dbase.php";
 $sql = "CREATE TABLE IF NOT EXISTS pda (
     id INT AUTO_INCREMENT PRIMARY KEY,
