@@ -10,14 +10,10 @@ require_once "dbase.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="user.css" ref="style/css">
+    <link rel="stylesheet" href="styles/user.css" ref="style/css">
     <title>Bem Vindo</title>
 </head>
 <body>
-    <style>
-      
-
-    </style>
     <div id=cbc>
         <div id=bts>
             <button type="button" id="btf">
