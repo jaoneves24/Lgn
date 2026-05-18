@@ -14,7 +14,7 @@ if(isset($_POST['btd'])){
         ':id' => $id
     ]);
 
-    header("Location: pdria.php");
+    header("Location: ../pdria.php");
     exit();
 }
 
@@ -28,7 +28,7 @@ if(isset($_POST['btdc'])){
     $stmt->execute([
         ':id' => $id
     ]);
-    header("Location: cfria.php");
+    header("Location: ../cfria.php");
     exit();
 }
 

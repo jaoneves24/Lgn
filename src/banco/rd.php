@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $_SESSION['mensagem'] = "Preencha todos os campos!";
     } 
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
     }
     
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
         $_SESSION['mensagem'] = "Preencha todos os campos!";
     }
-    header("Location: pdria.php");
+    header("Location: ../pdria.php");
     exit();
     }
     
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ':quantidadec' => $pec
             ]);
         } else{$_SESSION['mensagem'] = "Preencha todos os campos!";}
-    header("Location: cfria.php");
+    header("Location: ../cfria.php");
     exit();
 
     }

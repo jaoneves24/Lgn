@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if ($usuario && password_verify($senha, $usuario['senha'])) {
             $_SESSION['usuario'] = $usuario['email'];
-            header("Location: user.php");
+            header("Location: ../user.php");
             exit();
         } else {
             $_SESSION['mensagem'] = "Email ou senha incorretos!";
@@ -28,6 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 
 }
-header("Location: index.php");
+header("Location: ../index.php");
 exit();
 

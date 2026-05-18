@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'dbase.php';
+require 'banco/dbase.php';
 
 
 ?>
@@ -9,8 +9,9 @@ require 'dbase.php';
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css" ref="style/css">
+    <link rel="icon" type="image/x-icon" href="styles/logo.ico">
     <title>Loguin</title>                                                                                                                                                      
 </head>
 <body>
@@ -24,8 +25,8 @@ require 'dbase.php';
             </div>
             <div id="bottoes">                                       
                 
-                <input type="submit" id="btv" name="btv" value="☕ Entrar" formaction="validacao.php"> <!-- botoes de criação de usuario e vericação de usuario -->
-                <input type="submit" form="myform" id="btl" name="btl" value="➕ Cadastrar" formaction="rd.php"> <!-- botoes de criação de usuario e vericação de usuario -->
+                <input type="submit" id="btv" name="btv" value="☕ Entrar" formaction="banco/validacao.php"> <!-- botoes de criação de usuario e vericação de usuario -->
+                <input type="submit" form="myform" id="btl" name="btl" value="➕ Cadastrar" formaction="banco/rd.php"> <!-- botoes de criação de usuario e vericação de usuario -->
             </div>
         </div>
         <?php if (isset($_SESSION['mensagem'])): ?>
