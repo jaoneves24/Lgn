@@ -65,21 +65,20 @@ require_once "banco/dbase.php";
     <h2>Quem Somos</h2>
 
     <p>
-      A Café Bem Bão nasceu do amor por café e boas experiências.
-      Nosso propósito é oferecer produtos de qualidade em um ambiente acolhedor.
+        Somos estudantes universitarios criando um projeto simples
+        entao haveram erros de codigo e lacunas amadoras 
     </p>
 
     <p>
-      Aqui, tradição e inovação se encontram para levar até você o melhor da cafeteria.
+      estamos buscando sempre evoluir para melhorar nossos codigos
     </p>
-      </div>
   </section>
 
   <footer>
-    <p> (11) 98765-4321</p>
-    <p> (11) 91234-5678</p>
-    <p> contato@cafebembao.com</p>
-    <p> Rua das Flores, 123 - São Paulo, SP</p>
+    <p> </p>
+    <p></p>
+    <p> joao.neves.santos@uni9.com.br</p>
+    <p>Av. Professor Luiz Ignácio Anhaia Mello, 1363 - Vila Prudente, São Paulo</p>
   </footer>
 
           
