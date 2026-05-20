@@ -9,12 +9,15 @@
     <link rel="icon" type="image/x-icon" href="styles/logo.ico">
     <title>Padaria</title>
 </head>
-<body>
-    <div id="rdp">
-        <a href="pdria.php">Padaria</a>
-        <a href="user.php">Home</a>
-        <a href="cfria.php">café</a>
-    </div>
+<body>   
+ <header>
+    <div class="logo">☕ Café Bem Bão</div>
+    <nav>
+      <a href="user.php">como funciona</a>
+      <a href="cfria.php">Criar cafeteria</a>
+      <a href="pdria.php">Criar Padaria</a>
+    </nav>
+  </header>
     <div id="additens">
         <form method="POST"id="myform">
             <div id="addit">
@@ -58,7 +61,7 @@
                                     name="id"
                                     value="<?= $linha['id'] ?>"
                                 >
-                                <input type="submit" id="btd" name="btd" value=" ❌ " formaction="banco/delete.php">
+                                <input type="submit" id="btd" name="btd" value=" 🗑️ " formaction="banco/delete.php">
                             </form>
                         </div>
                     <?php } ?>
