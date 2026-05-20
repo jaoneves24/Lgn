@@ -62,7 +62,7 @@ nav {
   position:fixed;
   float:right;
   width: 30%;
-  height: 400px;
+  height: 600px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -80,15 +80,13 @@ nav {
     position:absolute
 }
 #namp, #prep, #qntp{
-        border:none;
         color:black;
         background-color: #c1a076;
-        border-radius: 20px;
-        width: 300px;
+        border-radius: 10px;
+        width: 200px;
         height: 50px;
         font-size: 16px;
         cursor:pointer;
-        margin-top:auto;
 
 }
 #addit input::placeholder{
@@ -96,14 +94,19 @@ nav {
     text-align: center;
 
 }
-#btec{
-    height: 40px;
+#btep{
+
+    border:none;
+    color:black;
+    background-color: #c1a076;
+    border-radius: 20px;
     width: 100px;
+    height: 20px;
+    font-size: 16px;
     cursor:pointer;
-    background-color: transparent;
-    border: 1px, solid ;
-    border-radius: 10px;
 }
+#btep:hover { transform: translateY(-2px);background-color: #419f00;color:black; box-shadow: 0 5px 15px rgb(0, 0, 0); }
+   
 #in{
     background-color: transparent;
     margin: none;
